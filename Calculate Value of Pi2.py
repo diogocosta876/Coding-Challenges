@@ -3,12 +3,14 @@ import math
 import statistics
 
 multiplier = 1
+Tentativas = 1
 TimesPiIsCalculated = 100
 PiValues = []              #dicionário que irá conter as aproximações de Pi
 Continue = True
 
 while Continue:
     PiValues.clear()
+
     for i in range(TimesPiIsCalculated):
         IsInside = 0
         IsOutside = 0
@@ -24,13 +26,17 @@ while Continue:
 
         AreaPercentage = IsInside/(1000 * multiplier)
         Pi = AreaPercentage * 4                         #Pi é igual à área do circulo
-        PiValues.append(Pi)
-        print("Pi " + str(i) + ":", Pi)                #pois pi*r^2 = A e r=1 logo pi=A
-        print(statistics.stdev(PiValues))
+        PiValues.append(Pi)                             #pois pi*r^2 = A e r=1 logo pi=A
+
+
+    print("TENTATIVA " + str(Tentativas) + "  Desvio: " + str(statistics.stdev(PiValues)))
+    print("Valor arredondado de Pi: " + str(sum(PiValues) / 100))
 
     if statistics.stdev(PiValues) < 0.005:
+        print("SUCEDIDO: statistics.stdev(PiValues) < 0.005")
         break
     else:
         multiplier *= 2
+        Tentativas += 1
 
 
