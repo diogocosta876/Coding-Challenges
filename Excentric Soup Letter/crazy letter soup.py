@@ -14,7 +14,7 @@ def plus1Boundaries(x, y, maxX, maxY):
     return (x,y)
 
 def aux(matrix, word, wordSeeker, lineN, columnN, count, oldLine, oldColumn):
-        if wordSeeker == word[-1]:              #checks if its done
+        if wordSeeker == word[-1] and count == len(word)-1:              #checks if its done
             values = {}
             for index, letter in enumerate(string.ascii_uppercase):
                 values[index] = letter
@@ -89,4 +89,4 @@ def soup(matrix, word):
                 if result != None:
                     return result
 
-print(soup(   (('R', 'T', 'B', 'N', 'T', 'O'), ('Y', 'T', 'N', 'R', 'I', 'T'), ('U', 'P', 'O', 'M', 'D', 'S'), ('I', 'O', 'H', 'U', 'O', 'O'), ('R', 'T', 'E', 'L', 'Q', 'X'), ('I', 'W', 'J', 'K', 'P', 'Z')), 'TIRNO'    ))
+print(soup(  (('J', 'D', 'C', 'P', 'C', 'P', 'X', 'O', 'A', 'A'), ('Z', 'X', 'V', 'O', 'V', 'X', 'F', 'R', 'V', 'V'), ('N', 'D', 'L', 'E', 'I', 'R', 'B', 'I', 'E', 'A'), ('Y', 'T', 'R', 'Q', 'O', 'M', 'O', 'I', 'I', 'O'), ('F', 'Z', 'Z', 'A', 'P', 'Z', 'E', 'R', 'T', 'Q'), ('X', 'A', 'U', 'E', 'O', 'E', 'O', 'O', 'T', 'O'), ('P', 'O', 'R', 'T', 'U', 'O', 'A', 'Z', 'L', 'Z'), ('C', 'Z', 'N', 'O', 'Q', 'U', 'P', 'U', 'O', 'P')), 'PORTO'   ))
